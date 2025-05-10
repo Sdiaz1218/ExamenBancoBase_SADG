@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlBack: "http://localhost:5252/"
+  urlBack:  "http://localhost:5024/"
 };
 
 /*
