@@ -1,0 +1,52 @@
+<div>
+  <mat-accordion>
+    <mat-expansion-panel style="background-color: #7f7c78;">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="color: black;font-weight: bolder; font-size: 20px;">
+          Alta de Pagos
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div *ngIf="pagosService.mostrarForm">
+      <p>
+        <mat-form-field style="margin-right:5%;">
+          <mat-label>Concepto</mat-label>
+          <input matInput  [(ngModel)]="pagosService.pagoInfo.Concepto" name="Concepto" #Concepto>
+        </mat-form-field>
+
+        <mat-form-field style="margin-right:5%;">
+          <mat-label>Cantidad de Productos</mat-label>
+          <input matInput [(ngModel)]="pagosService.pagoInfo.Cant_Productos" name="Cant_Productos" #Cant_Productos>
+        </mat-form-field>
+        <mat-form-field style="margin-right:5%;">
+          <mat-label>Quien Realiza el Pago</mat-label>
+          <input matInput [(ngModel)]="pagosService.pagoInfo.Cliente" name="Cliente" #Cliente>
+        </mat-form-field>
+        <mat-form-field style="margin-right:5%;">
+          <mat-label>EmpleadoID</mat-label>
+          <input matInput type="number"  [(ngModel)]="pagosService.pagoInfo.Empleado" name="Empleado" #Empleado>
+        </mat-form-field>
+        <mat-form-field floatLabel="always" style="margin-right:5%;">
+          <mat-label>Monto</mat-label>
+          <input matInput type="number" class="example-right-align" placeholder="0" [(ngModel)]="pagosService.pagoInfo.Total" name="Total" #Total>
+        </mat-form-field>
+        <mat-form-field  style="margin-right:5%;">
+          <mat-label>Estatus</mat-label>
+          <mat-select [(ngModel)]="pagosService.pagoInfo.EstatusPago" name="EstatusPago" #EstatusPago>
+            <mat-option value="0">Pagado</mat-option>
+            <mat-option value="1">NoProcesado</mat-option>
+            <mat-option value="2">Cancelado</mat-option>
+          </mat-select>
+        </mat-form-field>
+            <button mat-raised-button (click)="pagosService.RealizaPago()">Registrar</button>
+      </p>
+      </div>
+      <div *ngIf="pagosService.mostrarLoad" style="align-self: center;text-align: -webkit-center;">
+      <mat-spinner></mat-spinner>
+    </div>
+    </mat-expansion-panel>
+    <!-- <app-actualizar></app-actualizar> -->
+    <app-consulta></app-consulta>
+  </mat-accordion>
+</div>
