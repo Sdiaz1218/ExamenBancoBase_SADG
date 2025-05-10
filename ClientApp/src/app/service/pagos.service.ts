@@ -7,10 +7,11 @@ import { inject, Inject, Injectable } from '@angular/core';
 import { Pago } from '../pagos/model/Pago';
 import { environment } from 'src/environments/environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { IPagosService } from './pagos.interface';
 @Injectable({
   providedIn: 'root',
 })
-export class PagosService {
+export class PagosService implements IPagosService {
   public pagoInfo: Pago = new Pago();
   apiRoot: string;
   mostrarLoad: boolean = false;
@@ -32,6 +33,7 @@ export class PagosService {
     this.apiRoot = environment.urlBack;
   }
   ngOnInit(): void {}
+
   public RealizaPago(): void {
     const httpOptions = {
       headers: new HttpHeaders({
